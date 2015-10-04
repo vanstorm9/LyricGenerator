@@ -67,7 +67,7 @@ while True:
         
         sentences = splitParagraphIntoSentences(text)
         for s in sentences:
-                print s.strip()
+                print s.strip().capitalize()
                 
         print ''
         print ''
