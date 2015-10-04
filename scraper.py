@@ -11,25 +11,29 @@ def get_category_links00(section_url):
     row = soup.find("div", "row")
     for div in row.findAll("div"):
         for a in div.findAll("a"):
-            print(str(a["href"]))
+            b = str(a["href"])
+            get_category_links01("http://www.azlyrics.com/" + b)
     
     #category_links = [BASE_URL + div for div in cont.findAll("div")]
     #return category_links
 
-'''def get_category_links01(section_url):
+def get_category_links01(section_url):
     html = urlopen(section_url).read()
     soup = BeautifulSoup(html, "lxml")
-    cont = soup.find("div", "cont")
-    for div in cont.findAll("div"):
+    listAlbum = soup.find("div", "listAlbum")
+    for div in listAlbum.findAll("div"):
         for a in div.findAll("a"):
             c = str(a["href"])
-            get_category_links02("http://www.darklyrics.com/" + c[3:])
+            get_category_links02("http://www.azlyrics.com/" + c[3:])
             
 def get_category_links02(category_url):
     html = urlopen(category_url).read()
     soup = BeautifulSoup(html, "lxml")
-    lyrics = soup.find("div", "lyrics")
-    all_lyrics = []
+    lyrics = soup.find("div")
+    for br in lyrics.findAll('br'):
+    	next = br.nextSibling
+    print next
+    '''all_lyrics = []
     current_lyric = ''
     for br in lyrics.findAll('br'):
         next = br.nextSibling
@@ -37,7 +41,7 @@ def get_category_links02(category_url):
             current_lyric = current_lyric + next.split('<br/>')[0]
         except TypeError:
             all_lyrics.append(current_lyric)
-    print all_lyrics[0]
+    print all_lyrics[0]'''
             #current_lyric = ''
         # if not next == None:
             # print next.split('<br/><br/><br/>')
