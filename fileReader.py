@@ -7,7 +7,7 @@ def prepros_n_print(text_file, line):
     for char in line:
        if char not in punctuations:
            line = line + char
-    print line
+    #print line
     text_file.write(line)
     
 
