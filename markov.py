@@ -32,7 +32,7 @@ while True:
         for s in sentences:
                 senlen = sylco.sylco(s)
                 #num_words = num_of_words(s)
-                if(senlen <8):
+                if(senlen <10):
                         print s.strip().capitalize()
                 else:
                         print "          [" + s.strip().capitalize() + "]"
