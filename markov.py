@@ -24,8 +24,20 @@ def splitParagraphIntoSentences(paragraph):
 #print nsyl('multiplication')
 
 #file_ = open('text/combined.txt')
-file_ = open('scraped_data/1a.txt')
+#file_ = open('scraped_data/1a.txt')
 #file_ = open('text/lyrics.txt')
+while True:
+        print 'Press [l] for love song or [r] for rap-like songs'
+        typ = raw_input()
+        if typ == 'l' or typ=='r':
+                break
+
+if typ == 'l':
+        file_ = open('text/combined.txt')
+else:
+        file_ = open('scraped_data/1a.txt')
+
+
 while True:
         markov = markovlib.Markov(file_)
         text = markov.generate_markov_text()
@@ -43,7 +55,14 @@ while True:
                 '''
         print ''
         print ''
-        print 'Press anything to continue:'
-        response = raw_input()
+        
+        print 'Press [l] for love song or any key for rap-like songs'
+        typ = raw_input()
+
+        if typ == 'l':
+                file_ = open('text/combined.txt')
+        else:
+                file_ = open('scraped_data/1a.txt')
+
         print ''
         print ''
